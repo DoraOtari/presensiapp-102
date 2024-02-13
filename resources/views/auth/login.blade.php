@@ -17,7 +17,7 @@
         <!-- place navbar here -->
     </header>
     <main>
-        <div class="row d-flex justify-content-center align-items-center vh-100">
+        <div class="row d-flex justify-content-center align-items-center vh-100 mx-0">
             <div class="col-5">
                 <h1 class="text-primary fw-bolder display-4">facebook</h1>
                 <h3>Facebook membantu Anda terhubung dan berbagi dengan orang-orang dalam kehidupan Anda.</h3>
@@ -25,14 +25,15 @@
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="post" class="d-grid gap-3">
-                            <input type="email" name="" id="" class="form-control form-control-lg" placeholder="Masukan email kamu">
-                            <input type="password" name="" id="" class="form-control form-control-lg" placeholder="masukan password kamu">
-                            <button class="btn btn-primary btn-lg">masuk</button>
-                            <a href="" class="text-center">Lupa kata sandi?</a>
-                            <hr>
-                            <button class="btn btn-success btn-lg">Buat akun baru</button>
+                        <form action="{{ route('login') }}" method="post" class="d-grid gap-3">
+                            @csrf
+                            <input type="email" name="email" id="" class="form-control form-control-lg" placeholder="Masukan email kamu">
+                            <input type="password" name="password" id="" class="form-control form-control-lg" placeholder="masukan password kamu">
+                            <button type="submit" class="btn btn-primary btn-lg">masuk</button>
                         </form>
+                        <a href="{{ route('password.request') }}" class="text-center d-block my-2">Lupa kata sandi?</a>
+                        <hr>
+                        <a href="{{ route('register') }}" class="btn btn-success btn-lg d-block mx-auto col-6">Buat akun baru</a>
                     </div>
                 </div>
             </div>

@@ -1,17 +1,15 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+@extends('tema.bootstrap')
+@section('konten')
+    <div class="row justify-content-center mt-5">
+        <div class="col-5">
+            <h1>Welcome to Presensi</h1>
+            <p>aplikasi ini membantu kamu memantau performa kehadiran mu semudah memantau kegiatan mantanmu. tidak bisa digunakan untuk selingkuh, kami tidak menyediakan fitur chat</p>
+            <button class="btn btn-primary btn-lg">
+                <i class="bi bi-camera"></i>
+            </button>
+        </div>
+        <div class="col-5">
+            <img src="{{ asset('foto.png') }}" width="" alt="ini gambar">
         </div>
     </div>
-</x-app-layout>
+@endsection
