@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        @livewireStyles
+        @livewireScripts
 </head>
 
 <body>
@@ -33,10 +35,12 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav nav-underline justify-content-start align-items-center flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="{{ url('/dashboard') }}"><i class="bi-house"></i> Beranda</a>
+                                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page"
+                                    href="{{ url('/dashboard') }}"><i class="bi-house"></i> Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}" href="{{ url('/karyawan') }}"><i class="bi-people"></i> Karyawan</a>
+                                <a class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}"
+                                    href="{{ url('/karyawan') }}"><i class="bi-people"></i> Karyawan</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -53,10 +57,14 @@
                                 </ul>
                             </li>
                         </ul>
-                        <form class="d-flex mt-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <div class="d-flex mt-3" role="search">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="bi-power"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

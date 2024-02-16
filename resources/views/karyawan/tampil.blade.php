@@ -2,12 +2,17 @@
 @section('konten')
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title"><i class="bi-people"></i> Data Karyawan</h4>
+            <section class="hstack">
+                <h4 class="card-title"><i class="bi-people"></i> Data Karyawan</h4>
+                <a href="{{ url('/karyawan/buat') }}" class="btn btn-dark ms-auto">
+                    <i class="bi-plus"></i> Buat
+                </a>
+            </section>
             <hr>
             {{-- bs5-table-default berfungsi sebagai kode membuat tabel --}}
             <div class="table-responsive">
-                <table class="table">
-                    <thead>
+                <table class="table table-striped">
+                    <thead class="table-dark">
                         <tr>
                             <th>Column 1</th>
                             <th>Column 2</th>
