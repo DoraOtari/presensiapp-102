@@ -39,7 +39,7 @@
                                     href="{{ url('/dashboard') }}"><i class="bi-house"></i> Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('karyawan') ? 'active' : '' }}"
+                                <a class="nav-link {{ Request::is('karyawan*') ? 'active' : '' }}"
                                     href="{{ url('/karyawan') }}"><i class="bi-people"></i> Karyawan</a>
                             </li>
                             <li class="nav-item dropdown">

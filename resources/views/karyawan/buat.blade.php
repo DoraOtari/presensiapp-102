@@ -15,6 +15,26 @@
                         placeholder="masukan nama lengkap anda" />
                 </div>
                 <livewire:nik-otomatis />
+                <div class="row">
+                    <div class="mb-3 col">
+                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                        <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
+                            <option selected disabled>--Pilih Satu--</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="jabatan" class="form-label">Jabatan</label>
+                        <select class="form-select" name="jabatan" id="jabatan">
+                            <option selected disabled>--Pilih Satu--</option>
+                            @foreach ($jabatan as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                
             </form>
         </div>
     </div>

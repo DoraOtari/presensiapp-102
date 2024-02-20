@@ -12,8 +12,8 @@ class KaryawanController extends Controller
     }
 
     function buat() {
-        $users = DB::table('users')->get();
-        return view('karyawan.buat', compact('users'));
+        $jabatan = DB::table('jabatan')->get();
+        return view('karyawan.buat', compact('jabatan'));
     }
 
     function ubah() {
