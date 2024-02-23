@@ -29,12 +29,19 @@
                         <select class="form-select" name="jabatan" id="jabatan">
                             <option selected disabled>--Pilih Satu--</option>
                             @foreach ($jabatan as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                                <option value="{{ $item->id }}">{{ $item->nama }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <livewire:api-daerah-indo />
+                <div class="mb-3">
+                    <label class="form-label">Alamat</label>
+                    <textarea class="form-control" name="alamat" rows="3" placeholder="masukan alamat lengkap"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary float-end">
+                    Submit
+                </button>
             </form>
         </div>
     </div>
