@@ -33,3 +33,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/karyawan', [KaryawanController::class, 'tampil']);
 Route::get('/karyawan/buat', [KaryawanController::class, 'buat']);
+Route::post('/karyawan', [KaryawanController::class, 'simpan']);

@@ -26,7 +26,7 @@
                     </div>
                     <div class="mb-3 col">
                         <label for="jabatan" class="form-label">Jabatan</label>
-                        <select class="form-select" name="jabatan" id="jabatan">
+                        <select class="form-select" name="jabatan_id" id="jabatan">
                             <option selected disabled>--Pilih Satu--</option>
                             @foreach ($jabatan as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
