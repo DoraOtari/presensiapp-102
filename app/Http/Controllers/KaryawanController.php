@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class KaryawanController extends Controller
 {
     function tampil() {
-        return view('karyawan.tampil');
+        $karyawan = Karyawan::all();
+        return view('karyawan.tampil', compact('karyawan'));
     }
 
     function buat() {
@@ -34,6 +35,6 @@ class KaryawanController extends Controller
         $karyawan->alamat           = $request->alamat;
         $karyawan->save();
 
-        return redirect('/karyawan');
+        return redirect('/karyawan')->with('pesan','berhasil tambah karyawan');
     }
 }

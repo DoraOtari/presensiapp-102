@@ -9,4 +9,12 @@ class Karyawan extends Model
 {
     use HasFactory;
     protected $table = 'karyawan';
+
+    function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    function jabatan() {
+        return $this->belongsTo(Jabatan::class);
+    }
 }

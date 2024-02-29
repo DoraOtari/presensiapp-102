@@ -1,5 +1,12 @@
 @extends('tema.bootstrap')
 @section('konten')
+    @if (session('pesan'))
+        <div class="alert alert-success col-10 mx-auto" role="alert">
+            <strong>
+                <i class="bi-bell"></i>    
+            </strong> {{ session('pesan') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
             <section class="hstack">
@@ -14,17 +21,24 @@
                 <table class="table table-striped">
                     <thead class="table-dark">
                         <tr>
-                            <th>Column 1</th>
-                            <th>Column 2</th>
-                            <th>Column 3</th>
+                            <th>Avatar</th>
+                            <th>Nama</th>
+                            <th>Nik</th>
+                            <th>Jabatan</th>
+                            <th>Email</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                        <tr>
-                            <td>R1C1</td>
-                            <td>R1C2</td>
-                            <td>R1C3</td>
-                        </tr>
+                        @foreach ($karyawan as $item)
+                            <tr>
+                                <td><img src="" alt="foto profil"></td>
+                                <td>{{ $item->nama_lengkap }}</td>
+                                <td>{{ $item->nik }}</td>
+                                <td>{{ $item->jabatan->nama }}</td>
+                                <td>{{ $item->user->email }}</td>
+                            </tr>
+                        @endforeach
+                        
                     </tbody>
                 </table>
             </div>
