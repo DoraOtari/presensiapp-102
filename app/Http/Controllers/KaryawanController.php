@@ -2,12 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Karyawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class KaryawanController extends Controller
 {
+
+    function profil() {
+        return view('karyawan.profil');
+    }
+
+    function upload(Request $req) {
+        User::where('id', Auth::user()->id)
+                ->update(
+                    [
+                        'avatar' => $req->avatar->store('Profil'),
+                    ]
+                    );
+    }
+
     function tampil() {
         $karyawan = Karyawan::all();
         return view('karyawan.tampil', compact('karyawan'));

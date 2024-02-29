@@ -42,6 +42,10 @@
                                 <a class="nav-link {{ Request::is('karyawan*') ? 'active' : '' }}"
                                     href="{{ url('/karyawan') }}"><i class="bi-people"></i> Karyawan</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('profil*') ? 'active' : '' }}"
+                                    href="{{ url('/profil') }}"><i class="bi-person"></i> Profil</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
