@@ -5,10 +5,7 @@
             <h4 class="card-title">Upload Foto</h4>
             <hr>
             <form action="{{ url('karyawan/upload') }}" method="post">
-                <div class="mb-3">
-                    <label for="avatar" class="form-label">Pilih File</label>
-                    <input type="file" class="form-control" name="avatar" />
-                </div>
+                <livewire:upload-file />
                 <button type="submit" class="btn btn-primary float-end">
                     <i class="bi-upload"></i> Upload
                 </button>
