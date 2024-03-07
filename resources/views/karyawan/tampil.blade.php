@@ -31,7 +31,13 @@
                     <tbody class="table-group-divider">
                         @foreach ($karyawan as $item)
                             <tr>
-                                <td><img src="" alt="foto profil"></td>
+                                <td><img 
+                                    src="{{ asset('storage/'.$item->user->avatar) }}" 
+                                    alt="foto profil"
+                                    width="40"
+                                    class="rounded-3 img-thumbnail"
+                                    >
+                                </td>
                                 <td>{{ $item->nama_lengkap }}</td>
                                 <td>{{ $item->nik }}</td>
                                 <td>{{ $item->jabatan->nama }}</td>
