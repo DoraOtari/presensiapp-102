@@ -4,8 +4,7 @@
         <div class="card-body">
             <h4 class="card-title">Upload Foto</h4>
             <hr>
-            <form action="{{ url('karyawan/upload') }}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form action="{{ url('karyawan/upload') }}" method="post">
                 <div class="mb-3">
                     <label for="avatar" class="form-label">Pilih File</label>
                     <input type="file" class="form-control" name="avatar" />
