@@ -62,6 +62,18 @@
                             </li>
                         </ul>
                         <div class="d-flex mt-3" role="search">
+                            @if (Auth::user()->avatar)
+                                <img src="{{ asset('storage/'.Auth::user()->avatar) }}"
+                                    width="40"
+                                    class="rounded-circle"   
+                                >
+                            @else
+                                <img  src="https://placehold.co/40" 
+                                    width="40" 
+                                    class="rounded-circle"
+                                >
+                            @endif
+                            <b class="mx-2 mt-2">{{ Auth::user()->name }}</b>
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">

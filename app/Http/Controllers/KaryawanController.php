@@ -22,6 +22,7 @@ class KaryawanController extends Controller
                         'avatar' => $req->avatar->store('Profil'),
                     ]
                     );
+        return redirect('/profil');
     }
 
     function tampil() {
