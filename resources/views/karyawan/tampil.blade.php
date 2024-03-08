@@ -26,6 +26,8 @@
                             <th>Nik</th>
                             <th>Jabatan</th>
                             <th>Email</th>
+                            <th>Edit</th>
+                            <th>Hapus</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -42,6 +44,24 @@
                                 <td>{{ $item->nik }}</td>
                                 <td>{{ $item->jabatan->nama }}</td>
                                 <td>{{ $item->user->email }}</td>
+                                <td>
+                                    <a 
+                                        href='{{ url("/karyawan/$item->id/edit") }}'
+                                        class="btn btn-success">
+                                        <i class="bi-pen"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action='{{ url("/karyawan/$item->id") }}' method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button 
+                                            type="submit"
+                                            class="btn btn-danger">
+                                            <i class="bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         

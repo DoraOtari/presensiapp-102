@@ -1,1 +1,3 @@
-Mifta 10
+Mifta 15
+wisnu 5
+sinta 5

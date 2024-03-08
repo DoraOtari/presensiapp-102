@@ -54,4 +54,18 @@ class KaryawanController extends Controller
 
         return redirect('/karyawan')->with('pesan','berhasil tambah karyawan');
     }
+
+    function edit($id) {
+        $karyawan = Karyawan::find($id);
+        return view('karyawan.ubah',[
+            'karyawan' => $karyawan
+        ]);
+    }
+
+    function hapus($id) {
+        Karyawan::destroy($id);
+        return redirect('/karyawan')->with(
+            'pesan','berhasil hapus data'
+        );
+    }
 }
