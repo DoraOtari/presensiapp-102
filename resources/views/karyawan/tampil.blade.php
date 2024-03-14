@@ -18,8 +18,8 @@
             <hr>
             {{-- bs5-table-default berfungsi sebagai kode membuat tabel --}}
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-dark">
+                <table id="example" class="table table-striped">
+                    <thead>
                         <tr>
                             <th>Avatar</th>
                             <th>Nama</th>

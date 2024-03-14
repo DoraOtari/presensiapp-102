@@ -38,3 +38,4 @@ Route::get('/profil', [KaryawanController::class, 'profil']);
 Route::post('/karyawan/upload', [KaryawanController::class, 'upload']);
 Route::get('/karyawan/{id}/edit', [KaryawanController::class, 'edit']);
 Route::delete('/karyawan/{id}',[KaryawanController::class, 'hapus']);
+Route::put('/karyawan/{id}', [KaryawanController::class,'update']);

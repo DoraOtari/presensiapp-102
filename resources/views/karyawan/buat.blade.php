@@ -1,5 +1,14 @@
 @extends('tema.bootstrap')
 @section('konten')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="card">
         <div class="card-body">
             <div class="hstack">
@@ -11,17 +20,17 @@
                 @csrf
                 <div class="mb-3">
                     <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                    <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
+                    <input value="{{ old('nama_lengkap') }}" type="text" class="form-control" name="nama_lengkap" id="nama_lengkap"
                         placeholder="masukan nama lengkap anda" />
                 </div>
-                <livewire:nik-otomatis />
+                <livewire:nik-otomatis/>
                 <div class="row">
                     <div class="mb-3 col">
                         <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                         <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
                             <option selected disabled>--Pilih Satu--</option>
-                            <option value="laki-laki">Laki-laki</option>
-                            <option value="perempuan">Perempuan</option>
+                            <option @selected(old('jenis_kelamin') == 'laki-laki')  value="laki-laki">Laki-laki</option>
+                            <option @selected(old('jenis_kelamin') == 'perempuan') value="perempuan">Perempuan</option>
                         </select>
                     </div>
                     <div class="mb-3 col">
