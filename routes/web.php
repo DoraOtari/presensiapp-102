@@ -39,3 +39,4 @@ Route::post('/karyawan/upload', [KaryawanController::class, 'upload']);
 Route::get('/karyawan/{id}/edit', [KaryawanController::class, 'edit']);
 Route::delete('/karyawan/{id}',[KaryawanController::class, 'hapus']);
 Route::put('/karyawan/{id}', [KaryawanController::class,'update']);
+Route::view('absen', 'absen_page');

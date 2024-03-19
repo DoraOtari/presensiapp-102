@@ -4,9 +4,9 @@
         <div class="col-5">
             <h1>Welcome to Presensi</h1>
             <p>aplikasi ini membantu kamu memantau performa kehadiran mu semudah memantau kegiatan mantanmu. tidak bisa digunakan untuk selingkuh, kami tidak menyediakan fitur chat</p>
-            <button class="btn btn-primary btn-lg">
+            <a href="{{ url('absen') }}" class="btn btn-primary btn-lg">
                 <i class="bi bi-camera"></i>
-            </button>
+            </a>
         </div>
         <div class="col-5">
             <img src="{{ asset('foto.png') }}" width="" alt="ini gambar">
