@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KaryawanController;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +43,37 @@ Route::get('/karyawan/{id}/edit', [KaryawanController::class, 'edit']);
 Route::delete('/karyawan/{id}',[KaryawanController::class, 'hapus']);
 Route::put('/karyawan/{id}', [KaryawanController::class,'update']);
 Route::view('absen', 'absen_page');
+Route::post('presensi', function () {
+   $foto64 = request()->foto;
+   $foto = explode(',',$foto64)[1];
+   $nama_foto = uniqid().'.jpg';
+   $lokasi_foto = 'Foto Absen/'.$nama_foto;
+   $hasil_foto  = base64_decode($foto64);
+    $waktu = date('d-m-Y');
+    list($tgl, $bln, $thn) = explode('-', $waktu);
+
+    if (request()->keterangan == 'masuk') {
+        DB::table('kehadiran')->insert(
+            [
+                'user_id' => Auth::user()->id,
+                'foto_masuk' => $lokasi_foto,
+                'tgl' => $tgl,
+                'bln' => $bln,
+                'thn' => $thn,
+                'pukul_masuk' => date('H.i'),
+                'lokasi' => request()->lokasi,
+            ]
+            );
+    } else {
+        $karyawan = DB::table('kehadiran')->where('user_id', Auth::user()->id)->orderByDesc('id')->first();
+        DB::table('keluar')->where('id', $karyawan->id)->where('tgl', $tgl)
+        ->update(
+            [
+                'foto_keluar' => $lokasi_foto,
+                'pukul_keluar' => date('H.i'),
+            ]
+            );
+    }
+    Storage::put($lokasi_foto, $hasil_foto);
+    return redirect('absen')->with('pesan', "berhasil absen ".request()->keterangan);;
+});
