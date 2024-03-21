@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('kehadiran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users')->constrained();
-            $table->string('keterangan');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('foto_masuk');
             $table->string('pukul_masuk');
             $table->string('lokasi_masuk');
-            $table->string('foto_keluar');
-            $table->string('pukul_keluar');
-            $table->string('lokasi_keluar');
+            $table->string('foto_keluar')->nullable();
+            $table->string('pukul_keluar')->nullable();
+            $table->string('lokasi_keluar')->nullable();
             $table->string('tgl');
             $table->string('bln');
             $table->string('thn');

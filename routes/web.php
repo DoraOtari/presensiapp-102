@@ -61,16 +61,17 @@ Route::post('presensi', function () {
                 'bln' => $bln,
                 'thn' => $thn,
                 'pukul_masuk' => date('H.i'),
-                'lokasi' => request()->lokasi,
+                'lokasi_masuk' => request()->lokasi,
             ]
             );
     } else {
         $karyawan = DB::table('kehadiran')->where('user_id', Auth::user()->id)->orderByDesc('id')->first();
-        DB::table('keluar')->where('id', $karyawan->id)->where('tgl', $tgl)
+        DB::table('kehadiran')->where('id', $karyawan->id)->where('tgl', $tgl)
         ->update(
             [
                 'foto_keluar' => $lokasi_foto,
                 'pukul_keluar' => date('H.i'),
+                'lokasi_keluar' => request()->lokasi,
             ]
             );
     }
