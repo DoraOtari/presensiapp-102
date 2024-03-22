@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -48,7 +48,7 @@ Route::post('presensi', function () {
    $foto = explode(',',$foto64)[1];
    $nama_foto = uniqid().'.jpg';
    $lokasi_foto = 'Foto Absen/'.$nama_foto;
-   $hasil_foto  = base64_decode($foto64);
+   $hasil_foto  = base64_decode($foto);
     $waktu = date('d-m-Y');
     list($tgl, $bln, $thn) = explode('-', $waktu);
 
@@ -77,4 +77,10 @@ Route::post('presensi', function () {
     }
     Storage::put($lokasi_foto, $hasil_foto);
     return redirect('absen')->with('pesan', "berhasil absen ".request()->keterangan);;
+});
+
+Route::get('riwayat', function(){
+    $presensi = DB::table('kehadiran')->join('users','kehadiran.user_id','=','users.id')
+                    ->select('kehadiran.*','users.name')->get();
+    return view('karyawan.riwayat_page', compact('presensi'));
 });

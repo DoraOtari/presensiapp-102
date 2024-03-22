@@ -18,11 +18,11 @@
     </header>
     <main>
         <div class="row d-flex justify-content-center align-items-center vh-100 mx-0">
-            <div class="col-5">
+            <div class="col-lg-5">
                 <h1 class="text-primary fw-bolder display-4">facebook</h1>
                 <h3>Facebook membantu Anda terhubung dan berbagi dengan orang-orang dalam kehidupan Anda.</h3>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('login') }}" method="post" class="d-grid gap-3">

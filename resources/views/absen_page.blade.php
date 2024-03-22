@@ -49,7 +49,9 @@
                 <div style="height: 180px" id="map"></div>
                 <button type="submit" class="btn btn-primary float-end my-3"><i class="bi-send"></i> Send</button>
             </form>
-
+            <a href="{{ url('dashboard') }}" class="btn btn-warning bg-gradient mt-3">
+                Dashboard
+            </a>
         </div>
     </main>
     <footer>
