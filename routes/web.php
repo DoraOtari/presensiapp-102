@@ -44,6 +44,16 @@ Route::delete('/karyawan/{id}',[KaryawanController::class, 'hapus']);
 Route::put('/karyawan/{id}', [KaryawanController::class,'update']);
 Route::view('absen', 'absen_page');
 Route::post('presensi', function () {
+
+    request()->validate([
+        'foto' => 'required',
+        'lokasi' => 'required',
+        'keterangan' => 'required',
+    ],[
+        'foto.required' => 'wajib foto sebelum absen',
+        'keterangan.required' => 'wajib pilih keterangan absen',
+    ]);
+
    $foto64 = request()->foto;
    $foto = explode(',',$foto64)[1];
    $nama_foto = uniqid().'.jpg';

@@ -27,6 +27,16 @@
                     <strong><i class="bi-bell"></i></strong> {{ session('pesan') }}
                 </div>
             @endif
+
+            <div class="px-3">
+                @if ($errors->any())
+                    <ol>
+                        @foreach ($errors->all() as $error)
+                            <li class="text-danger">{{ $error }}</li>
+                        @endforeach
+                    </ol>
+                @endif
+            </div>
             <form action="{{ url('presensi') }}" method="post">
                 @csrf
                 <div id="my_camera" class="mx-auto" style="width:320px; height:240px;"></div>

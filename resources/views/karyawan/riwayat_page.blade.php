@@ -1,5 +1,6 @@
 @extends('tema.bootstrap')
 @section('konten')
+<div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +14,7 @@
                 <th>Lokasi Keluar</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             @foreach ($presensi as $item)
                 <tr>
                     <td>{{ $item->tgl."-".$item->bln."-".$item->thn }}</td>
@@ -32,4 +33,5 @@
             @endforeach
         </tbody>
     </table>
+</div>
 @endsection
